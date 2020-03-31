@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: gsi-enablement-one.tcs-springboot-mar31-ab-1
+  labels:
+    app: tcs-springboot-mar31-ab-1
+spec:
+  triggers:
+    - type: GitHub
+      github:
+        secret: secret101
+  source:
+    git:
+      uri: 'https://github.com/gsi-enablement-one/tcs-springboot-mar31-ab-1.git'
+      ref: master
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfilePath: Jenkinsfile
+      env:
+        - name: CLOUD_NAME
+          value: openshift
+        - name: NAMESPACE
+          value: dev-ab1
+        - name: BRANCH
+          value: master
