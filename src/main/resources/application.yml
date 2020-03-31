@@ -3,7 +3,7 @@ spring:
     name: "${IMAGE_NAME:template-spring-boot}"
 
 hello:
-  pattern: "Hello there, %s!"
+  pattern: "Hi there, %s!"
 
 greetingservice:
   beanName: "hola"
